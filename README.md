@@ -39,6 +39,24 @@ Because the dataset contains both numerical and categorical variables, the K-Pro
 7. Cluster profiling
 8. Business recommendations
 
+## Project Structure
+
+Nigerian_Retail_And_Ecommerce_Customer_Segmentation_Data/
+│
+├── Data/
+│   └── original_nigerian_retail_and_ecommerce_customer_segmentation_data.csv
+│
+├── Images/
+│   └── Charts and visualizations
+│
+├── Notebooks/
+│   └── nigeria_retail_and_ecommerce_customer_segmentation.ipynb
+│
+├── Outputs/
+│   └── Final clustering output
+│
+└── README.md
+
 ## Results
 
 The final K-Prototypes model produced four customer clusters.
