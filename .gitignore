@@ -1,0 +1,31 @@
+# Byte-compiled / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+
+# Data (optional - see note below)
+# data/*.csv
+
+# Environment variables / secrets
+.env
+
+# OneDrive sync artifacts (given your past path issues)
+*.tmp
+~$*
