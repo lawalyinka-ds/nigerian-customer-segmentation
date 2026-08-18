@@ -147,9 +147,32 @@ Distribution of customers across the four final clusters, showing relative segme
 
 ## Results
 
-The final K-Prototypes model produced four customer clusters.
+Using K-Prototypes clustering on the 150,000-row Nigerian retail and e-commerce dataset, four distinct customer segments were identified from a mix of numeric (spend, order value, lifetime value, order count, recency) and categorical (preferred category, purchase frequency, seasonal buyer status) features.
 
-Detailed cluster characteristics, descriptive segment names, and business recommendations are presented in the project analysis.
+- **Optimal k = 4**, selected using Adjusted Rand Index (ARI = 0.4601) and cluster interpretability, rather than relying on the elbow method alone.
+- The four segments identified:
+  | Cluster | Label | Key Characteristics |
+  |---|---|---|
+  | 0 | Budget/Occasional Shoppers | Low spend, infrequent orders, lower lifetime value |
+  | 1 | Frequent Mid-Spenders | Moderate spend, high purchase frequency |
+  | 2 | Premium Customers | High spend, high lifetime value, consistent purchasing |
+  | 3 | Occasional Big-Ticket Buyers | Low frequency but high average order value |
+- Cluster sizes were reasonably balanced, with no single segment dominating the customer base (see final cluster distribution chart above).
+
+## Key Insights
+
+- **Purchase frequency emerged as a hidden dimension**: The original dataset came with five predefined customer segment labels, but those labels didn't explicitly capture purchase frequency as a differentiator. Clustering on the raw features surfaced frequency as a major axis separating customers — meaning the existing segmentation scheme was missing a behaviorally important signal.
+- **Spend and lifetime value don't always move together**: Occasional Big-Ticket Buyers show that infrequent customers can still be high-value, which a simple "frequent = valuable" heuristic would miss.
+- **Premium Customers combine both frequency and spend**, making them the clearest candidates for loyalty or retention-focused campaigns, while Frequent Mid-Spenders represent volume-driven revenue rather than high-margin revenue.
+- Mixed-type clustering (K-Prototypes) was necessary here — a pure K-Means approach would have required discarding the categorical behavioral features (preferred category, seasonal buyer), losing meaningful segmentation signal.
+
+## Business Recommendations
+
+- **Premium Customers**: Prioritize retention — loyalty programs, early access to new products/categories, personalized outreach. Losing this segment has the highest revenue impact per customer.
+- **Frequent Mid-Spenders**: Focus on upsell and cross-sell strategies (bundle offers, category expansion) to shift them toward higher average order value without losing their purchase frequency.
+- **Occasional Big-Ticket Buyers**: Target with timely, high-relevance promotions around their likely purchase windows (e.g., seasonal or event-based marketing) rather than high-frequency messaging, which risks being ignored.
+- **Budget/Occasional Shoppers**: Use low-cost re-engagement tactics (discount codes, reminder emails) to increase order frequency before investing further marketing spend, since this segment currently returns the least value per touchpoint.
+- **Segmentation strategy**: Recommend supplementing the business's existing five-label segment scheme with the frequency-based clusters identified here, since it captures a dimension the current scheme misses — this could improve targeting precision for campaigns tied to purchase cadence.
 
 ## Author
 
