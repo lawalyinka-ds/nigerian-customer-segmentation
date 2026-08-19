@@ -13,6 +13,8 @@ import numpy as np
 import pickle
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 # ---------------------------------------------------------
 # PAGE CONFIG
@@ -31,13 +33,13 @@ st.set_page_config(
 
 @st.cache_resource
 def load_model():
-    with open("model/kprototypes_model.pkl", "rb") as f:
+    with open(os.path.join(BASE_DIR,"model","kprototypes_model.pkl"), "rb") as f:
         model = pickle.load(f)
     return model
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("data/labeled_customers.csv")
+    df = pd.read_csv("os.path.join(BASE_DIR,"data","labeled_customers.csv"))
     return df
 
 # Cluster label mapping — update these to match your actual cluster numbers
