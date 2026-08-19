@@ -171,6 +171,7 @@ elif page == "Try It: Predict a Segment":
         total_spend = st.number_input("Total Spend (NGN)", min_value=0, value=50000, step=1000)
         avg_order_value = st.number_input("Average Order Value (NGN)", min_value=0, value=5000, step=500)
         total_orders = st.number_input("Total Orders", min_value=0, value=10, step=1)
+        lifetime_value = st.number_input("Lifetime Value (NGN)", min_value = 0, value = 200000, step = 1000)
 
     with col2:
         last_purchase_days = st.number_input("Days Since Last Purchase", min_value=0, value=30, step=1)
@@ -184,16 +185,17 @@ elif page == "Try It: Predict a Segment":
 
             # Build input row — order and preprocessing must match training pipeline
             input_data = np.array([[
-                np.log1p(total_spend),
                 np.log1p(avg_order_value),
                 total_orders,
+                np.log1p(total_spend),
                 last_purchase_days,
-                preferred_category,
+                lifetime_value,
                 purchase_frequency,
+                preferred_category,
                 seasonal_buyer
             ]], dtype=object)
 
-            categorical_indices = [4, 5, 6]  # positions of categorical columns
+            categorical_indices = [5, 6, 7]  # positions of categorical columns
             prediction = model.predict(input_data, categorical=categorical_indices)
             cluster_num = int(prediction[0])
             label = CLUSTER_LABELS.get(cluster_num, "Unknown")
