@@ -1,3 +1,6 @@
+#  Streamlit_app link 
+https://nigerian-customer-segmentation-hfjkwh6bk4n5hwlnuldtk4.streamlit.app/
+
 # nigerian-customer-segmentation
 Customer segmentation of Nigerian retail and e-commerce customers using K-Prototypes clustering.
 #  Nigerian Retail & E-Commerce Customer Segmentation
