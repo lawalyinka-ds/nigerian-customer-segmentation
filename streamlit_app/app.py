@@ -39,7 +39,7 @@ def load_model():
 
 @st.cache_data
 def load_data():
-    df = pd.read_csv("os.path.join(BASE_DIR,"data","labeled_customers.csv"))
+    df = pd.read_csv(os.path.join(BASE_DIR,"data","labeled_customers.csv"))
     return df
 
 # Cluster label mapping — update these to match your actual cluster numbers
