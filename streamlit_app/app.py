@@ -37,6 +37,12 @@ def load_model():
         model = pickle.load(f)
     return model
 
+@st.cache_resource
+def load_scaler():
+    with open(os.path.join(BASE_DIR, "model", "scaler.pkl"), "rb") as f:
+        scaler = pickle.load(f)
+    return scaler
+
 @st.cache_data
 def load_data():
     df = pd.read_csv(os.path.join(BASE_DIR,"data","labeled_customers.csv"))
