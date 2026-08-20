@@ -188,17 +188,28 @@ elif page == "Try It: Predict a Segment":
     if st.button("Predict Segment", type="primary"):
         try:
             model = load_model()
+            scaler = load_scaler()
 
             # Build input row — order and preprocessing must match training pipeline
+            numeric_values = np.array([[
+            np.log1p(avg_order_value),
+            total_orders,
+            np.log1p(total_spend),
+            last_purchase_days,
+            lifetime_value
+            ]])
+
+            scaled_numeric = scaler.transform(numeric_values)
+
             input_data = np.array([[
-                np.log1p(avg_order_value),
-                total_orders,
-                np.log1p(total_spend),
-                last_purchase_days,
-                lifetime_value,
-                purchase_frequency,
-                preferred_category,
-                seasonal_buyer
+            scaled_numeric[0][0],
+            scaled_numeric[0][1],
+            scaled_numeric[0][2],
+            scaled_numeric[0][3],
+            scaled_numeric[0][4],
+            purchase_frequency,
+            preferred_category,
+            seasonal_buyer
             ]], dtype=object)
 
             categorical_indices = [5, 6, 7]  # positions of categorical columns
